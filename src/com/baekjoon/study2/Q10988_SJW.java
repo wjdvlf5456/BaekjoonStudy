@@ -13,16 +13,22 @@ public class Q10988_SJW {
 		char[] alphabet = new char[word.length()];
 
 		int result = 0;
-		int sum = 0;
-		for (int i = 0; i <= alphabet.length / 2; i++) {
+		for (int i = 0; i < alphabet.length / 2; i++) {
+			int sum = 1;
 
 			if (alphabet[i] == alphabet[alphabet.length - 1 - i]) {
-				sum++;
-			} else {
-				break;
+				sum = sum + i;
+				System.out.println("if문 sum" + sum);
 			}
+			System.out.println("for문 sum " + sum);
+			if (sum>=word.length()) {
+				result=1;
+				System.out.println("if문 속 result: " + result);
+			}
+			System.out.println("for문 result: " + result);
 
 		}
+
 		System.out.println(result);
 
 		sc.close();
