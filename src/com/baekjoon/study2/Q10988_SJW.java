@@ -21,8 +21,8 @@ public class Q10988_SJW {
 				System.out.println("if문 sum" + sum);
 			}
 			System.out.println("for문 sum " + sum);
-			if (sum>=word.length()) {
-				result=1;
+			if (sum>=word.length()/2) {
+				result = 1;
 				System.out.println("if문 속 result: " + result);
 			}
 			System.out.println("for문 result: " + result);
