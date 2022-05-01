@@ -23,8 +23,8 @@ public class Q5032_CJP {
 		int need = sc.nextInt();
 
 		int result = bottle + find;
-		
-		System.out.println("need: "+ need );
+
+		System.out.println("need: " + need);
 		System.out.println("result: " + result);
 
 		int sum = 0;
@@ -32,7 +32,7 @@ public class Q5032_CJP {
 			sum = sum + result / need;
 			System.out.println("while문 sum: " + sum);
 
-			result = result / need + result % need;
+			result = result / need + result % need;		// 빈병도 포함
 			System.out.println("result: " + result);
 
 			if (result < need) {
