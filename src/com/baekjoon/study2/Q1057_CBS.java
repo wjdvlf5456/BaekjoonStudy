@@ -22,7 +22,6 @@ public class Q1057_CBS {
 
 			// 둘이 같은 라운드에서 만나는 경우
 			if (kjm / 2 == (ihs / 2) + 1 || (kjm / 2) + 1 == ihs / 2 && ihs - kjm == 1) {
-				System.out.println("만날 때 라운드" + round);
 				break;
 			} else {
 				// 김지민의 다음라운드 번호
@@ -46,11 +45,7 @@ public class Q1057_CBS {
 			challenger = challenger / 2;
 			round += 1;
 		}
-
-		// 대결하지 않으면 -1을 출력
-		if (challenger == 0) {
-			System.out.println(-1);
-		}
+		System.out.println(round);
 
 		sc.close();
 
