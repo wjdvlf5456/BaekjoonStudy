@@ -21,8 +21,13 @@ public class Q1057_CBS {
 		while (challenger / 2 >= 1) {
 
 			// 둘이 같은 라운드에서 만나는 경우
-			if (kjm / 2 == (ihs / 2) + 1 || (kjm / 2) + 1 == ihs / 2 && ihs - kjm == 1) {
-				break;
+			if ((1 + kjm + ihs) % 4 == 0 && (ihs - kjm == 1 || kjm - ihs == 1)) {
+
+				if ((kjm / 2 == (ihs / 2) + 1) || ((kjm / 2) + 1 == ihs / 2)) {
+					break;
+				}
+				continue;
+
 			} else {
 				// 김지민의 다음라운드 번호
 				if (kjm % 2 == 1) {
@@ -30,6 +35,7 @@ public class Q1057_CBS {
 				} else {
 					kjm = kjm / 2;
 				}
+				System.out.println("김지민: " + kjm);
 
 				// 임한수의 다음라운드 번호
 				if (ihs % 2 == 1) {
@@ -38,12 +44,14 @@ public class Q1057_CBS {
 					ihs = ihs / 2;
 
 				}
-
+				System.out.println("임한수: " + ihs);
 			}
 
 			// 라운드가 진행될 때 마다 참가자는 절반으로 줄어든다.
 			challenger = challenger / 2;
+			System.out.println("참가자: " + challenger);
 			round += 1;
+			System.out.println("현재라운드: " + round);
 		}
 		System.out.println(round);
 
