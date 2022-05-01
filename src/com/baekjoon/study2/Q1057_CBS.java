@@ -18,20 +18,11 @@ public class Q1057_CBS {
 
 		int round = 1;
 
-		while (challenger / 2 > 1) {
-			round += 1;
-			System.out.println("while문 속 round: " + round);
+		while (challenger / 2 >= 1) {
 
 			// 둘이 같은 라운드에서 만나는 경우
-			if (kjm / 2 == (ihs / 2) + 1 || (kjm / 2) + 1 == ihs / 2) {
-
-				// 도전자가 홀수면 라운드 하나를 더 가므로 -1을 해준다.
-				if (challenger % 2 == 0) {
-					System.out.println("만날 때 라운드" + round);
-				} else {
-					System.out.println("만날 때 라운드" + (round - 1));
-
-				}
+			if (kjm / 2 == (ihs / 2) + 1 || (kjm / 2) + 1 == ihs / 2 && ihs - kjm == 1) {
+				System.out.println("만날 때 라운드" + round);
 				break;
 			} else {
 				// 김지민의 다음라운드 번호
@@ -40,7 +31,6 @@ public class Q1057_CBS {
 				} else {
 					kjm = kjm / 2;
 				}
-				System.out.println("while 김지민:  " + kjm);
 
 				// 임한수의 다음라운드 번호
 				if (ihs % 2 == 1) {
@@ -49,13 +39,12 @@ public class Q1057_CBS {
 					ihs = ihs / 2;
 
 				}
-				System.out.println("while 임한수:  " + ihs);
 
 			}
 
 			// 라운드가 진행될 때 마다 참가자는 절반으로 줄어든다.
 			challenger = challenger / 2;
-			System.out.println("challenger: " + challenger);
+			round += 1;
 		}
 
 		// 대결하지 않으면 -1을 출력
