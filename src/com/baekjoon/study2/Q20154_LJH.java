@@ -11,10 +11,19 @@ public class Q20154_LJH {
 		String word = sc.nextLine();
 
 		String[] alphabet = new String[word.length()];
-
-		alphabet[0].charAt(0);
 		
-		System.out.println(alphabet[0]);
+		char[] spelling = new char[word.length()];
+		
+		
+
+		
+		for (int i = 0; i < alphabet.length; i++) {
+			spelling[i] = word.charAt(i);
+			System.out.print(spelling[i]);
+		}
+		
+		
+		
 
 		sc.close();
 
