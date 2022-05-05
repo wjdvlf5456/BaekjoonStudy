@@ -8,16 +8,26 @@ public class Q1212_CBS {
 		// 8진수 2진수
 		Scanner sc = new Scanner(System.in);
 
+		// 10진수로 입력
 		String str = sc.nextLine();
 
 		String[] strArray = str.split("");
 
 		int[] eight = new int[strArray.length];
 
-		for (int i = 0, j = strArray.length - 1; i < strArray.length; i++, j--) {
-			eight[i] = Integer.parseInt(strArray[j]);
+		int squared = 1;
 
+		int sum = 0;
+
+		for (int i = 0; i < strArray.length; i++) {
+
+			eight[i] = squared * Integer.parseInt(strArray[strArray.length - i - 1]);
+
+			squared *= 8;
+
+			sum += eight[i];
 		}
+		System.out.println(sum);
 
 		sc.close();
 
