@@ -1,33 +1,31 @@
 package com.baekjoon.study03;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Q2520_CJP {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		// 팬케이크 사랑
-		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		String str = sc.nextLine();
+		String str = br.readLine();
 
-		String[] mat = str.split(" ");
+		StringTokenizer st = new StringTokenizer(str);
 
-		int[] material = new int[mat.length];
+		int[] material = new int[5];
+		for (int i = 0; i < material.length; i++) {
+			material[i] = Integer.parseInt(st.nextToken());
 
-		for (int j = 0; j < mat.length; j++) {
-			material[j] = Integer.parseInt(mat[j]);
 		}
 
 		int dough = 0;
 
-		while (true) {
+		while ((material[0] / 8) * (material[1] / 8) * (material[2] / 4) * (material[3] / 1) * (material[4] / 9) != 0) {
 
-			if ((material[0] / 8) * (material[1] / 8) * (material[2] / 4) * (material[3] / 1)
-					* (material[4] / 9) == 0) {
-				dough++;
-				break;
-			}
 			material[0] -= 8;
 			material[1] -= 8;
 			material[2] -= 4;
@@ -37,20 +35,22 @@ public class Q2520_CJP {
 
 		}
 
-		dough = 16 * dough;
+		dough = dough * 16;
 
-		String topp = sc.nextLine();
+		String toppingType = br.readLine();
 
-		String[] toppi = topp.split(" ");
+		StringTokenizer tk = new StringTokenizer(toppingType);
 
-		int[] topping = new int[toppi.length];
-
-		for (int j = 0; j < toppi.length; j++) {
-			topping[j] = Integer.parseInt(toppi[j]);
+		int[] topping = new int[4];
+		for (int i = 0; i < topping.length; i++) {
+			topping[i] = Integer.parseInt(tk.nextToken());
 		}
 
-		int sum = topping[0] / 1 + topping[1] / 30 + topping[2] / 25 + topping[3] / 10;
-		if (sum < dough) {
+		System.out.println(dough);
+
+		int sum = (topping[0] / 1) + (topping[1] / 30) + (topping[2] / 25) + (topping[3] / 10);
+		System.out.println(sum);
+		if (dough > sum) {
 			System.out.println(sum);
 
 		} else {
@@ -58,7 +58,7 @@ public class Q2520_CJP {
 
 		}
 
-		sc.close();
+		br.close();
 
 	}
 
