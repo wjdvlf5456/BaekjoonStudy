@@ -13,19 +13,16 @@ public class Q1212_CBS {
 
 		String[] strArray = str.split("");
 
-		int[] eight = new int[strArray.length];
-
 		int squared = 1;
 
 		int sum = 0;
 
 		for (int i = 0; i < strArray.length; i++) {
 
-			eight[i] = squared * Integer.parseInt(strArray[strArray.length - i - 1]);
+			sum += squared * Integer.parseInt(strArray[strArray.length - i - 1]);
 
 			squared *= 8;
 
-			sum += eight[i];
 		}
 		System.out.println(sum);
 
