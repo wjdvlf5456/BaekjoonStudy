@@ -12,50 +12,53 @@ public class Q2520_CJP {
 		// 팬케이크 사랑
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		String str = br.readLine();
+		int test = Integer.parseInt(br.readLine());
 
-		StringTokenizer st = new StringTokenizer(str);
+		for (int i = 0; i < test; i++) {
 
-		int[] material = new int[5];
-		for (int i = 0; i < material.length; i++) {
-			material[i] = Integer.parseInt(st.nextToken());
+			String str = br.readLine();
 
-		}
+			StringTokenizer st = new StringTokenizer(str);
 
-		int dough = 0;
+			int[] material = new int[5];
+			for (int j = 0; j < material.length; j++) {
+				material[j] = Integer.parseInt(st.nextToken());
 
-		while ((material[0] / 8) * (material[1] / 8) * (material[2] / 4) * (material[3] / 1) * (material[4] / 9) != 0) {
+			}
 
-			material[0] -= 8;
-			material[1] -= 8;
-			material[2] -= 4;
-			material[3] -= 1;
-			material[4] -= 9;
-			dough++;
+			int dough = 0;
 
-		}
+			while ((material[0] / 8) * (material[1] / 8) * (material[2] / 4) * (material[3] / 1)
+					* (material[4] / 9) != 0) {
 
-		dough = dough * 16;
+				material[0] -= 8;
+				material[1] -= 8;
+				material[2] -= 4;
+				material[3] -= 1;
+				material[4] -= 9;
+				dough++;
 
-		String toppingType = br.readLine();
+			}
 
-		StringTokenizer tk = new StringTokenizer(toppingType);
+			dough = dough * 16;
 
-		int[] topping = new int[4];
-		for (int i = 0; i < topping.length; i++) {
-			topping[i] = Integer.parseInt(tk.nextToken());
-		}
+			String toppingType = br.readLine();
 
-		System.out.println(dough);
+			StringTokenizer tk = new StringTokenizer(toppingType);
 
-		int sum = (topping[0] / 1) + (topping[1] / 30) + (topping[2] / 25) + (topping[3] / 10);
-		System.out.println(sum);
-		if (dough > sum) {
-			System.out.println(sum);
+			int[] topping = new int[4];
+			for (int j = 0; j < topping.length; j++) {
+				topping[j] = Integer.parseInt(tk.nextToken());
+			}
 
-		} else {
-			System.out.println(dough);
+			int sum = (topping[0] / 1) + (topping[1] / 30) + (topping[2] / 25) + (topping[3] / 10);
+			if (dough > sum) {
+				System.out.println(sum);
 
+			} else {
+				System.out.println(dough);
+
+			}
 		}
 
 		br.close();
