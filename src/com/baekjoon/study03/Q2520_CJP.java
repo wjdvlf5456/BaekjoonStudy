@@ -12,6 +12,7 @@ public class Q2520_CJP {
 		// 팬케이크 사랑
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+		// 테스트케이스
 		int test = Integer.parseInt(br.readLine());
 
 		for (int i = 0; i < test; i++) {
@@ -20,6 +21,7 @@ public class Q2520_CJP {
 
 			StringTokenizer st = new StringTokenizer(str);
 
+			// 반죽재료
 			int[] material = new int[5];
 			for (int j = 0; j < material.length; j++) {
 				material[j] = Integer.parseInt(st.nextToken());
@@ -39,13 +41,14 @@ public class Q2520_CJP {
 				dough++;
 
 			}
-
+			// 반죽 * 16
 			dough = dough * 16;
 
 			String toppingType = br.readLine();
 
 			StringTokenizer tk = new StringTokenizer(toppingType);
 
+			// 토핑개수
 			int[] topping = new int[4];
 			for (int j = 0; j < topping.length; j++) {
 				topping[j] = Integer.parseInt(tk.nextToken());
