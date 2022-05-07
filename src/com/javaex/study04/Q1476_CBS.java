@@ -8,8 +8,8 @@ public class Q1476_CBS {
 
 		// 날짜 계산
 		Scanner sc = new Scanner(System.in);
+		// earth, sun ,moon의 숫자 입력
 		String str = sc.nextLine();
-
 		String[] st = str.split(" ");
 
 		int[] esm = new int[3];
@@ -22,14 +22,15 @@ public class Q1476_CBS {
 
 		while (true) {
 
-			if (esm[0] % 15 == esm[1] % 28 && esm[1] % 28 == esm[2] % 19 && esm[2] % 19 == esm[0] % 15) {
-				break;
-			}
-
 			year++;
 			esm[0]--;
 			esm[1]--;
 			esm[2]--;
+
+			// 모든 숫자를 하나씩 빼면서 나머지가 같을 때 멈춘다.
+			if (esm[0] % 15 == esm[1] % 28 && esm[1] % 28 == esm[2] % 19 && esm[2] % 19 == esm[0] % 15) {
+				break;
+			}
 
 		}
 
