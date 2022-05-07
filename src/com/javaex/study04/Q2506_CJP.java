@@ -14,17 +14,20 @@ public class Q2506_CJP {
 
 		int[] question = new int[st.length];
 		int sum = 0;
+
+		int contin = 0;
 		for (int i = 0; i < question.length; i++) {
 			question[i] = Integer.parseInt(st[i]);
-			sum = sum + i;
-			if (question[i] == 0) {
-				break;
+			sum = sum + contin;
+
+			if (question[i] == 1) {
+				contin++;
+			} else if (question[i] == 0) {
+				contin = 0;
 			}
 
 		}
-
 		System.out.println(sum);
-
 		sc.close();
 
 	}
