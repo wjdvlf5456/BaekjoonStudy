@@ -9,15 +9,17 @@ public class Q2506_CJP {
 		// 정수계산
 		Scanner sc = new Scanner(System.in);
 
-		String str = sc.nextLine();
-		String[] st = str.split(" ");
+		// 문제 수
+		int quest = sc.nextInt();
 
-		int[] question = new int[st.length];
+		// 맞았는지 틀렸는지 각 배열에 1과 0으로 구분
+		int[] question = new int[quest];
 		int sum = 0;
 
 		int contin = 0;
-		for (int i = 0; i < question.length; i++) {
-			question[i] = Integer.parseInt(st[i]);
+		for (int i = 0; i < quest; i++) {
+			question[i] = sc.nextInt();
+
 			sum = sum + contin;
 
 			if (question[i] == 1) {
