@@ -9,37 +9,24 @@ public class Q2578_LJH {
 		// 빙고
 		Scanner sc = new Scanner(System.in);
 
-		String str = sc.nextLine();
-		String[] st = str.split(" ");
-		int[] music = new int[st.length];
+		int[] bingo = new int[25];
+		for (int i = 0; i < 5; i++) {
+			System.out.println(i);
+			String str = sc.nextLine();
 
-		String result = "";
+			for (int j = 0 + 5 * i; j < 5 + 5 * i; j++) {
+				String[] st = str.split(" ");
+				bingo[j] = Integer.parseInt(st[j]);
 
-		for (int i = 0; i < music.length; i++) {
-			music[i] = i + 1;
-
-			if (music[i] == Integer.parseInt(st[i])) {
-				if (i == music.length - 1) {
-					System.out.println("ascending");
-				}
-
-				continue;
-
-			} else if (music[i] == Integer.parseInt(st[music.length - i - 1])) {
-				if (i == music.length - 1) {
-					System.out.println("descending");
-				}
-				continue;
-			} else {
-				System.out.println("mixed");
-				break;
 			}
-
 		}
-		System.out.println(result);
+		System.out.println(bingo[4]);
+		System.out.println(bingo[9]);
+		System.out.println(bingo[14]);
+		System.out.println(bingo[19]);
+		System.out.println(bingo[24]);
 
 		sc.close();
-
 	}
 
 }

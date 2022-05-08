@@ -25,8 +25,6 @@ public class Q1212_CBS {
 			squared *= 8;
 		}
 
-		System.out.println(sum);
-
 		int two = 0;
 		int x = 1;
 		while (sum > 0) {
