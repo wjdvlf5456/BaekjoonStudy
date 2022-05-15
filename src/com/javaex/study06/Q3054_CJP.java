@@ -14,19 +14,41 @@ public class Q3054_CJP {
 		String[] peter = new String[5];
 		peter[0] = "..#.";
 		peter[1] = ".#.#";
-		peter[2] = "#.";
+		peter[2] = ".#";
 		peter[3] = ".#.#";
 		peter[4] = "..#.";
 
+		// 웬디프레임 --> 피터팬을 *로 바꿈
+		String[] wendy = new String[5];
+		for (int i = 0; i < wendy.length; i++) {
+			wendy[i] = peter[i].replaceAll("#", "*");
+		}
+
 		for (int i = 0; i < peter.length; i++) {
+			if (i == 2) {
+				System.out.print("#");
+			}
 
 			for (int j = 0; j < word.length(); j++) {
-				System.out.print(peter[i]);
 				if (i == 2) {
-					System.out.print(word.charAt(j) + ".");
+					System.out.print("." + word.charAt(j));
+				}
+				// 3번째 글자마다 웬디 프레임 적용
+				if (j % 3 == 2 || j % 3 == 1) {
+					System.out.print(wendy[i]);
+
+				} else {
+					System.out.print(peter[i]);
 				}
 			}
-			System.out.println(".");
+
+			if (i == 2) {
+				System.out.println("");
+
+			} else {
+				System.out.println(".");
+
+			}
 		}
 
 		sc.close();
