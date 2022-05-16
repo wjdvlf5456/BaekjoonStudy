@@ -14,9 +14,11 @@ public class Q16488_피카츄 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
 		//int형은 값을 다 담지 못하여 long형 사용
+		
 		long x = Integer.parseInt(st.nextToken());
 		long y = Integer.parseInt(st.nextToken());
-
+		
+		
 		System.out.println(x * x * y);
 
 		br.close();
