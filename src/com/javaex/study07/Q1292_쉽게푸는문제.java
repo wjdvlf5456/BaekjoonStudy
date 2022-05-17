@@ -23,22 +23,21 @@ public class Q1292_쉽게푸는문제 {
 
 			for (int j = 0; j < i; j++) {
 				number += 1;
+				// 번호가 a번째 가 되면 그때부터 i를 더하시오
 				if (number >= a) {
 					sum += i;
+
 				}
-				
-				System.out.print("안쪽 i: " + i + "  ");
-				System.out.println("안쪽 j: " + j);
-				System.out.println("안쪽 number: " + number);
-				System.out.println("");
+				// 번호가 b번째가 되면 합산을 멈추고 출력하시오
+				if (number == b) {
+					System.out.println(sum);
+					break;
+				}
+
 			}
-			System.out.print("안쪽 sum: " + sum + "  ");
-			System.out.println("");
 
 		}
-		System.out.print("최종 sum: " + sum + "  ");
-		System.out.println("최종 number: " + number);
-		System.out.println("");
+		br.close();
 
 	}
 
