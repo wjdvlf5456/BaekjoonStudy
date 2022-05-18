@@ -1,9 +1,11 @@
-package com.javaex.study07;
+package com.baekjoon.study07;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -22,21 +24,16 @@ public class Q5587_카드캡터상근이 {
 		for (int i = 1; i <= card * 2; i++) {
 			gList.add(i);
 		}
-		
+
 		for (int i = 0; i < card; i++) {
 			int san = Integer.parseInt(br.readLine());
 			sList.add(i, san);
-			
+
 		}
-		
+
 		gList.removeAll(sList);
 		System.out.println(sList.toString());
 		System.out.println(gList.toString());
-		
-		
-		
-		
-		
 
 	}
 

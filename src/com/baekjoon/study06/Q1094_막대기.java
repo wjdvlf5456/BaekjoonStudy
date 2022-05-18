@@ -1,4 +1,4 @@
-package com.javaex.study06;
+package com.baekjoon.study06;
 
 import java.util.Scanner;
 
@@ -21,6 +21,8 @@ public class Q1094_막대기 {
 
 		}
 		String two = Integer.toString(sum);
+		
+		System.out.println(sum);
 
 		int count = 0;
 

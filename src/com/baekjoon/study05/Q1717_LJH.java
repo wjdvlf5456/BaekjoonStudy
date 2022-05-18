@@ -1,4 +1,4 @@
-package com.javaex.study05;
+package com.baekjoon.study05;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,32 +30,12 @@ public class Q1717_LJH {
 		}
 		// 연산의 수
 		int m = Integer.parseInt(st.nextToken());
-		
 
 		for (int i = 0; i < m; i++) {
 			String number = br.readLine();
 			String[] numb = number.split(" ");
 			String a = numb[1];
 			String b = numb[2];
-
-			switch (number.charAt(0)) {
-			case 0:
-				
-
-				break;
-			case 1:
-				if () {
-					System.out.println("YES");
-				} else {
-					System.out.println("NO");
-				}
-				
-
-				break;
-
-			default:
-				break;
-			}
 
 		}
 

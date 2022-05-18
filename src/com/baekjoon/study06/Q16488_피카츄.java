@@ -1,28 +1,26 @@
-package com.javaex.study07;
+package com.baekjoon.study06;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Q1629_곱셈 {
+public class Q16488_피카츄 {
 
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		//int형은 값을 다 담지 못하여 long형 사용
+		
+		long x = Integer.parseInt(st.nextToken());
+		long y = Integer.parseInt(st.nextToken());
+		
+		
+		System.out.println(x * x * y);
 
-		long a = Integer.parseInt(st.nextToken());
-		long b = Integer.parseInt(st.nextToken());
-		long c = Integer.parseInt(st.nextToken());
-
-		long ab = 1;
-
-		for (int i = 0; i < b; i++) {
-			ab *= a;
-		}
-		System.out.println(ab % c);
 		br.close();
 
 	}

@@ -1,4 +1,4 @@
-package com.javaex.study04;
+package com.baekjoon.study04;
 
 import java.io.BufferedReader;
 import java.io.IOException;
