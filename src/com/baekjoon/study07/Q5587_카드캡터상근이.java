@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -32,8 +30,31 @@ public class Q5587_카드캡터상근이 {
 		}
 
 		gList.removeAll(sList);
-		System.out.println(sList.toString());
-		System.out.println(gList.toString());
+		sList.sort(null);
+		gList.sort(null);
+		int countsang = 0;
+		int countgeun = 0;
+
+		int s = 0;
+		int g = 0;
+
+		while (sList.size() == 0 || gList.size() == 0) {
+			if (sList.get(s) > gList.get(g)) {
+				sList.remove(s);
+				if (sList.get(s) < gList.get(g)) {
+					s++;
+				}
+
+			} else if (sList.get(s) < gList.get(g)) {
+				gList.remove(g);
+				if (sList.get(s) > gList.get(g)) {
+					g++;
+				}
+
+			}
+		}
+		System.out.println(sList.size());
+		System.out.println(gList.size());
 
 	}
 
