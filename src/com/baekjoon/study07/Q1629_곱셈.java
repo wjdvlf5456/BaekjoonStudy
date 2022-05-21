@@ -17,12 +17,12 @@ public class Q1629_곱셈 {
 		long b = Integer.parseInt(st.nextToken());
 		long c = Integer.parseInt(st.nextToken());
 
-		long ab = 1;
+		long result = 1;
 
 		for (int i = 0; i < b; i++) {
-			ab *= a;
+			result *= a;
 		}
-		System.out.println(ab % c);
+		System.out.println(result % c);
 		br.close();
 
 	}
