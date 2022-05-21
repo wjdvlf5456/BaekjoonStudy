@@ -19,14 +19,24 @@ public class Q25193_곰곰이의식단관리 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		StringTokenizer nst = new StringTokenizer(br.readLine());
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		
+
 		int n = Integer.parseInt(nst.nextToken());
-		
+
+		int notchicken = 1;
+
+		String food = br.readLine();
+
+		String[] dFood = food.split("");
+
 		for (int i = 0; i < n; i++) {
-			
+			if (dFood[i].equals("C")) {
+			} else {
+				notchicken++;
+			}
+
 		}
-		
+		System.out.println(n / notchicken);
+		br.close();
 	}
 
 }
