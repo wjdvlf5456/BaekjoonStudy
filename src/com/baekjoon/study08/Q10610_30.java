@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Q10610_30 {
 
@@ -22,26 +21,24 @@ public class Q10610_30 {
 		}
 
 		Arrays.sort(n);
-		int[] nGet = new int[thirty.length];
-
-		for (int i = n.length - 1, j = 0; i >= 0; i--, j++) {
-			nGet[j] = n[i];
-		}
 
 		int sum = 0;
 
-		for (int i = 0; i < nGet.length; i++) {
-			if (nGet[nGet.length - 1] != 0) {
-				System.out.println(-1);
+		for (int i = 0; i < n.length; i++) {
+			if (n[0] != 0) {
+				sum = -1;
 				break;
 
+			} else {
+				sum = sum + n[i];
 			}
-			sum = sum + nGet[i];
 		}
-		System.out.println(sum);
+
+		// 각 자리의 수를 합쳐서 3의 배수이면 n도 3의 배수이니 나머지로 여부를 알아낸다.
 		if (sum % 3 == 0) {
-			for (int j = 0; j < nGet.length; j++) {
-				System.out.print(nGet[j]);
+			for (int i = n.length - 1; i >= 0; i--) {
+				System.out.print(n[i]);
+
 			}
 		} else {
 			System.out.println(-1);
