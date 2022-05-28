@@ -24,6 +24,8 @@ public class Q5107_마니또 {
 		while (true) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int people = Integer.parseInt(st.nextToken());
+			
+			int count = 0;
 
 			// 0 입력시 테스트케이스 종료
 			if (people == 0) {
@@ -44,7 +46,6 @@ public class Q5107_마니또 {
 				}
 
 				int i = 0;
-				int count = 0;
 				String find = pList.get(i);
 				// 연결고리수 찾기 while문 시작
 				while (true) {
@@ -56,18 +57,18 @@ public class Q5107_마니또 {
 						count +=1;
 						break;
 
-					} else {	// 만약 리스트에서 해쉬맵의
+					} else {	// 만약 리스트에서 해쉬맵의 키값과 일치하는 것이 없으면 find 리스트의 아무 값으로 초기
 						find = pList.get(i);
 						count += 1;
 					}
 
 				}
 
-				// 몇번째 케이스인지 + 공백 + 연결고리 수 출력
-				System.out.println(casecount + " " + count);
-				casecount++;
 
 			}
+			// 몇번째 케이스인지 + 공백 + 연결고리 수 출력
+			System.out.println(casecount + " " + count);
+			casecount++;
 		}
 
 		br.close();
