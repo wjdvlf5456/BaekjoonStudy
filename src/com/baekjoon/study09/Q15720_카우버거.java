@@ -1,11 +1,9 @@
-package com.beakjoon.study09;
+package com.baekjoon.study09;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class Q15720_카우버거 {
