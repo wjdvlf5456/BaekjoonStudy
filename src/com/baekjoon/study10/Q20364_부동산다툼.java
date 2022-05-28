@@ -11,7 +11,6 @@ public class Q20364_부동산다툼 {
 
 	public static void main(String[] args) throws IOException {
 
-		Map<Integer, Integer> landTree = new TreeMap<Integer, Integer>();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -19,29 +18,27 @@ public class Q20364_부동산다툼 {
 		int land = Integer.parseInt(st.nextToken());
 		int duck = Integer.parseInt(st.nextToken());
 
-		int i = land;
-
-		while (i > 0) {
-			landTree.put(i, i / 2);
-			i--;
+		int[] number = new int[duck];
+		
+		int second = 1;
+		while (second<land) {
+			second *=2;
+		}
+		number[0] = second/2;
+		for (int i = 1; i < land;i++) {
+			number[i] = number[0]/2;
+			number[i+1] = number[0]+1;
+			
 		}
 		
-		for (int j = 0; j < duck; j++) {
+		
+		
+		
+		for (int i = 0; i < duck; i++) {
 			st = new StringTokenizer(br.readLine());
-			
-			int allready = Integer.parseInt(st.nextToken());
-			
-			if (landTree.containsKey(allready)) {
-				System.out.println(0);
-				landTree.remove(allready);
-			} else {
+			number[i] = Integer.parseInt(st.nextToken());
 
-			}
-			
-			
 		}
-		
-		System.out.println(landTree.toString());
 
 		br.close();
 
