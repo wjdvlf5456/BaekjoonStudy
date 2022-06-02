@@ -10,8 +10,9 @@ import java.util.StringTokenizer;
 public class Q13335_트럭 {
 
 	public static void main(String[] args) throws IOException {
-
-		List<Integer> tList = new ArrayList<Integer>();
+		
+		
+		List<Integer> tList=  new ArrayList<Integer>();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -27,28 +28,45 @@ public class Q13335_트럭 {
 
 		st = new StringTokenizer(br.readLine());
 
+		int[] truck = new int[n];
+
+		for (int i = 0; i < truck.length; i++) {
+			truck[i] = Integer.parseInt(st.nextToken());
+		}
+		
+
 		int time = 0;
 
-		for (int i = 0; i < n; i++) {
-			tList.add(Integer.parseInt(st.nextToken()));
-			if (tList.size() > w) {
-				tList.remove(0);
-				if (tList.stream().mapToInt(Integer::intValue).sum() > l) {
-					time += w;
-				} else {
-					time++;
-
-				}
-			} else if (tList.stream().mapToInt(Integer::intValue).sum() > l) {
-				tList.remove(0);
-				time += w;
-			} else {
-				time++;
+		int i = 0;
+		
+		while (true) {
+			if (i==n) {
+				break;
 			}
+			int sum = 0;
+			tList.add(truck[i]);
+			for (int j = 0 ;j<tList.size(); j++) {
+				sum += tList.get(j);
+			}
+			if (tList.size()>w) {
+				tList.remove(tList.get(0));
+				time++;
+			} else if(sum>l) {
+				tList.remove(tList.get(0));
+				for (int j = tList.size(); j < w; j++) {
+					tList.add(0);
+					time++;
+				}
+			} else {
 
+			}
+			tList.add(0);
+			tList.remove(tList.get(w-1));
+			time++;
+			i++;
+			System.out.println("sum: "+sum);
 		}
-		System.out.println(time + w);
-
+		System.out.println(time);
 		br.close();
 
 	}
