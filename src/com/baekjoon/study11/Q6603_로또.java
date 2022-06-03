@@ -1,42 +1,42 @@
 package com.baekjoon.study11;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 public class Q6603_로또 {
 	
-	public static void main(String[] args) throws IOException {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		
-		int n = Integer.parseInt(st.nextToken());
-		
-		int[] a = new int[n];
-		int[] b = new int[n];
-		
-		//a 배열의 값
-		st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < n; i++) {
-			a[i] = Integer.parseInt(st.nextToken());
-		}
-		
-		//b 배열의 값 
-		st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < n; i++) {
-			b[i] = Integer.parseInt(st.nextToken());
-		}
-		
-		Arrays.sort(a);
-		Arrays.sort(a);
-		
-		
-		br.close();
-		
-	}
+	  public static ArrayList<Integer> lst = new ArrayList<>();
 
+	    public static void main(String[] args) throws IOException {
+	        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+	        while (true) {
+	            String[] ipt = br.readLine().split(" ");
+	            if (ipt[0].equals("0")) break;
+	            search(Integer.parseInt(ipt[0]), ipt, bw);
+	            bw.newLine();
+	        }
+	        bw.flush();
+	        bw.close();
+	    }
+
+	    public static void search(int N, String[] ipt, BufferedWriter bw) throws IOException {
+	        if (lst.size() == 6) {
+	            for (Integer i: lst) bw.write(i + " ");
+	            bw.newLine();
+	            return;
+	        }
+	        for (int i = 1; i < N+1; i++) {
+	            if (lst.isEmpty() || Integer.parseInt(ipt[i]) > lst.get(lst.size()-1)) {
+	                lst.add(Integer.parseInt(ipt[i]));
+	                search(N, ipt, bw);
+	                lst.remove(lst.size()-1);
+	            }
+	        }
+	    }
 }
