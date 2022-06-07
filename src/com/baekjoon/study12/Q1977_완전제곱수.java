@@ -17,28 +17,29 @@ public class Q1977_완전제곱수 {
 		int m = Integer.parseInt(br.readLine());
 
 		int sum = 0;
+		int min = 0;
 
-		int newn = (int) (Math.round(Math.sqrt(n) * 100) / 100)+1;
-		int newm = (int) (Math.round(Math.sqrt(m) * 100) / 100);
-		if (Math.round(Math.sqrt(n))== Math.round(Math.sqrt(m))) {
-			bw.write(String.valueOf(-1));
-			
-			bw.close();
-			br.close();
-		} else {
-			bw.write(String.valueOf(newn * newn));
-			
-			for (int i = newn; i <= newm; i++) {
-				sum += i * i;
-				
+		for (int i = n; i <= m; i++) {
+			if (Math.sqrt(i) % 1 == 0) {
+				sum += i;
+				if (min > 0) {
+
+				} else if(min==0){
+					min += i;
+				}
 			}
-			bw.newLine();
-			bw.write(String.valueOf(sum));
-			
-			bw.close();
-			br.close();
 
 		}
+		if (sum == 0) {
+			bw.write(String.valueOf(-1));
+		} else {
+			bw.write(String.valueOf(sum));
+			bw.newLine();
+			bw.write(String.valueOf(min));
+		}
+
+		bw.close();
+		br.close();
 
 	}
 
