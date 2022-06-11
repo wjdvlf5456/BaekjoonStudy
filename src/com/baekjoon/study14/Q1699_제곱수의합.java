@@ -3,41 +3,45 @@ package com.baekjoon.study14;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Q1699_제곱수의합 {
 
 	public static void main(String[] args) throws IOException {
 
-		List<Integer> sqrList = new ArrayList<Integer>();
-		List<Integer> getList = new ArrayList<Integer>();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
 		// 주어진 자연수 N
-		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
 
-		int sqr = (int) Math.sqrt(n);
+		int[] nCase = new int[4];
+		int sqr = (int) Math.sqrt(m);
 
-		for (int i = 1; i <= sqr; i++) {
-			sqrList.add(i * i);
+		for (int i = 0; i < 4; i++) {
 
-		}
-		int count = 0;
-		int i = 0;
+			int n = m;
+			int count = 0;
+			sqr = (int) Math.sqrt(n) - i;
+			for (int j = 0; j < 4; j++) {
+				n = n - sqr * sqr;
+				sqr = (int) Math.sqrt(n);
+				if (n == 0) {
+					count++;
+					break;
+				} else {
 
-		while (i < sqrList.size()) {
-			if (sqrList.contains(n - sqrList.get(i)) || sqrList.get(i) == n) {
-				getList.add(sqrList.get(i));
-			} else {
-
+				}
+				count++;
 			}
-			i++;
+			nCase[i] = count;
 		}
-		System.out.println(sqrList.toString());
-		System.out.println(getList.toString());
+		Arrays.sort(nCase);
+		
+		System.out.println(Arrays.toString(nCase));
+
+		System.out.println(nCase[0]);
 
 		br.close();
 
