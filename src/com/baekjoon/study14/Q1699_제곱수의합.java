@@ -16,15 +16,15 @@ public class Q1699_제곱수의합 {
 		// 주어진 자연수 N
 		int m = Integer.parseInt(st.nextToken());
 
-		int[] nCase = new int[4];
+		int[] nCase = new int[m];
 		int sqr = (int) Math.sqrt(m);
 
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < m; i++) {
 
 			int n = m;
 			int count = 0;
 			sqr = (int) Math.sqrt(n) - i;
-			for (int j = 0; j < 4; j++) {
+			for (int j = 0; j < m; j++) {
 				n = n - sqr * sqr;
 				sqr = (int) Math.sqrt(n);
 				if (n == 0) {
@@ -38,8 +38,6 @@ public class Q1699_제곱수의합 {
 			nCase[i] = count;
 		}
 		Arrays.sort(nCase);
-		
-		System.out.println(Arrays.toString(nCase));
 
 		System.out.println(nCase[0]);
 
