@@ -15,7 +15,8 @@ public class Q1699_제곱수의합 {
 
 		// 주어진 자연수 N
 		int m = Integer.parseInt(st.nextToken());
-
+		
+		// m만큼 모든 배열에 1을 부여한다.
 		int[] nCase = new int[m];
 		int sqr = (int) Math.sqrt(m);
 
@@ -24,13 +25,12 @@ public class Q1699_제곱수의합 {
 			int n = m;
 			int count = 0;
 			sqr = (int) Math.sqrt(n) - i;
-			for (int j = 0; j < m; j++) {
+			for (int j = 1; j * j < m; j++) {
 				n = n - sqr * sqr;
 				sqr = (int) Math.sqrt(n);
 				if (n == 0) {
 					count++;
 					break;
-				} else {
 
 				}
 				count++;
