@@ -20,31 +20,29 @@ public class Q2290_LCDTest {
 
 			switch (i) {
 			case 0:
-
+				topWidth(nStr, s, n);
 				break;
 
 			case 1:
 				for (int j = 0; j < s; j++) {
-					topHeight(nStr, n);
-
+					System.out.println(topHeight(nStr, s, n));
+					
 				}
-
 				break;
 
 			case 2:
-
+				midWidth(nStr, s, n);
 				break;
 
 			case 3:
 				for (int j = 0; j < s; j++) {
-
-					undHeight(nStr, n);
+					System.out.println(undHeight(nStr, s, n));
 				}
 
 				break;
 
 			default:
-
+				botWidth(nStr, s, n);
 				break;
 			}
 			System.out.println("");
@@ -62,17 +60,88 @@ public class Q2290_LCDTest {
 		return nStr;
 	}
 
-	public static void width(int s) {	// s만큼 '-'를 출력하는 함수
+	// i==0, 맨 위의 줄 출력
+	public static void topWidth(String nStr, int s, int n) {
+		String wLine = "";
+		for (int i = 0; i < n; i++) {
+			int nString = Integer.parseInt(subStr(nStr, i));
+			wLine += " ";
 
-		for (int i = 0; i < s; i++) {
-			System.out.print("-");
+			switch (nString) {
+			case 1:
+			case 4:
+				wLine += space(s);
+				break;
+
+			default:
+				wLine += width(s);
+				break;
+			}
+			wLine += "  ";
 		}
+		System.out.print(wLine);
 	}
 
-	public static void topHeight(String nStr, int n) {	// 중간기준 위에 '|' 를 출력하는 함수
+	// i==0, 맨 위의 줄 출력
+	public static void midWidth(String nStr, int s, int n) {
+		String wLine = "";
+		for (int i = 0; i < n; i++) {
+			int nString = Integer.parseInt(subStr(nStr, i));
+			wLine += " ";
+
+			switch (nString) {
+			case 1:
+			case 7:
+			case 0:
+				wLine += space(s);
+				break;
+
+			default:
+				wLine += width(s);
+				break;
+			}
+			wLine += "  ";
+		}
+		System.out.print(wLine);
+	}
+
+	// i==0, 맨 위의 줄 출력
+	public static void botWidth(String nStr, int s, int n) {
+		String wLine = "";
+		for (int i = 0; i < n; i++) {
+			int nString = Integer.parseInt(subStr(nStr, i));
+			wLine += " ";
+
+			switch (nString) {
+			case 1:
+			case 4:
+			case 7:
+				wLine += space(s);
+				break;
+
+			default:
+				wLine += width(s);
+				break;
+			}
+			wLine += "  ";
+		}
+		System.out.print(wLine);
+	}
+
+	public static String width(int s) {	// s만큼 '-'를 출력하는 함수
+		String wid = "";
+		for (int i = 0; i < s; i++) {
+			wid += "-";
+		}
+
+		return wid;
+
+	}
+
+	public static String topHeight(String nStr, int s, int n) {	// 중간기준 위에 '|' 를 출력하는 함수
 
 		String hLine = "";
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i <n; i++) {
 			int nString = Integer.parseInt(subStr(nStr, i));
 
 			switch (nString) {
@@ -80,7 +149,7 @@ public class Q2290_LCDTest {
 			case 5:
 			case 6:
 				hLine += "|";
-				hLine += space(n);
+				hLine += space(s);
 				hLine += " ";
 				break;
 
@@ -89,8 +158,8 @@ public class Q2290_LCDTest {
 			case 2:
 			case 3:
 			case 7:
-				hLine += space(n);
-				hLine +=" ";
+				hLine += space(s);
+				hLine += " ";
 				hLine += "|";
 				break;
 
@@ -100,23 +169,23 @@ public class Q2290_LCDTest {
 			case 9:
 			case 0:
 				hLine += "|";
-				hLine += space(n);
+				hLine += space(s);
 				hLine += "|";
 				break;
 
 			default:
 				break;
 			}
-			hLine+=" ";
+			hLine += " ";
 		}
-		System.out.print(hLine);
+		return hLine;
 
 	}
 
-	public static void undHeight(String nStr, int s) {	// 중간기준 아래에 '|' 를 출력하는 함수
+	public static String undHeight(String nStr, int s, int n) {	// 중간기준 아래에 '|' 를 출력하는 함수
 
 		String hLine = "";
-		for (int i = 0; i < s; i++) {
+		for (int i = 0; i < n; i++) {
 			int nString = Integer.parseInt(subStr(nStr, i));
 
 			switch (nString) {
@@ -151,9 +220,9 @@ public class Q2290_LCDTest {
 			default:
 				break;
 			}
-			hLine+=" ";
+			hLine += " ";
 		}
-		System.out.print(hLine);
+		return hLine;
 	}
 
 	// int s 만큼 공백을 채워주는 함수
