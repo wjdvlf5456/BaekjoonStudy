@@ -16,32 +16,45 @@ public class Q2290_LCDTest {
 		Writer bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
+		// '-','|' 길이
 		int s = Integer.parseInt(st.nextToken());
+		// 출력하고 싶은 숫자
 		String nStr = st.nextToken();
 
+		// 숫자자리수
 		int n = nStr.length();
 
+		// 맨 위줄 s만큼 '-' 출력
 		bw.write(topWidth(nStr, s, n));
 		((BufferedWriter) bw).newLine();
+		
+		//s길이만큼 '|'가 내려가야 하니 newLine으로 줄바꿈
 		for (int i = 0; i < s; i++) {
 			bw.write(topHeight(nStr, s, n));
 			((BufferedWriter) bw).newLine();
 		}
+		
+		//가운데 '-' 출력
 		bw.write(midWidth(nStr, s, n));
 		((BufferedWriter) bw).newLine();
 
+		//s길이만큼 '|'가 내려가야 하니 newLine으로 줄바꿈
 		for (int i = 0; i < s; i++) {
 			bw.write(undHeight(nStr, s, n));
 			((BufferedWriter) bw).newLine();
 		}
+		
+		// 맨 아래  '-' 
 		bw.write(botWidth(nStr, s, n));
-
+		
+		//writer,reader 둘 다 닫아준다.
 		bw.flush();
 		bw.close();
 		br.close();
 
 	}
 
+	// 서브스트링 static으로 정의
 	public static String subStr(String nStr, int i) {
 
 		nStr = nStr.substring(i, i + 1);
@@ -49,7 +62,7 @@ public class Q2290_LCDTest {
 		return nStr;
 	}
 
-	// i==0, 맨 위의 줄 출력
+	// 맨 위의 줄 출력함수
 	public static String topWidth(String nStr, int s, int n) {
 		String wLine = "";
 		for (int i = 0; i < n; i++) {
@@ -66,12 +79,13 @@ public class Q2290_LCDTest {
 				wLine += width(s);
 				break;
 			}
+			// 다음 숫자는 한칸 띄움
 			wLine += "  ";
 		}
 		return wLine;
 	}
 
-	// i==0, 맨 위의 줄 출력
+	// 가운데 줄 출력
 	public static String midWidth(String nStr, int s, int n) {
 		String wLine = "";
 		for (int i = 0; i < n; i++) {
@@ -94,7 +108,7 @@ public class Q2290_LCDTest {
 		return wLine;
 	}
 
-	// i==0, 맨 위의 줄 출력
+	// 맨 아래 줄 출력
 	public static String botWidth(String nStr, int s, int n) {
 		String wLine = "";
 		for (int i = 0; i < n; i++) {
@@ -112,19 +126,19 @@ public class Q2290_LCDTest {
 				wLine += width(s);
 				break;
 			}
+			// 다음 숫자는 한칸 띄움
 			wLine += "  ";
 		}
 		return wLine;
 	}
 
-	public static String width(int s) {	// s만큼 '-'를 출력하는 함수
+	// s만큼 '-'를 더해주어 3가지 Width함수로 넘김
+	public static String width(int s) {
 		String wid = "";
 		for (int i = 0; i < s; i++) {
 			wid += "-";
 		}
-
 		return wid;
-
 	}
 
 	public static String topHeight(String nStr, int s, int n) {	// 중간기준 위에 '|' 를 출력하는 함수
@@ -165,6 +179,7 @@ public class Q2290_LCDTest {
 			default:
 				break;
 			}
+			// 다음 숫자는 한칸 띄움
 			hLine += " ";
 		}
 		return hLine;
@@ -175,6 +190,7 @@ public class Q2290_LCDTest {
 
 		String hLine = "";
 		for (int i = 0; i < n; i++) {
+			// n의 맨 앞자리부터 주어진 숫자가 무었인지 가져온다.
 			int nString = Integer.parseInt(subStr(nStr, i));
 
 			switch (nString) {
@@ -209,6 +225,7 @@ public class Q2290_LCDTest {
 			default:
 				break;
 			}
+			// 다음 숫자는 한칸 띄움
 			hLine += " ";
 		}
 		return hLine;
@@ -217,12 +234,13 @@ public class Q2290_LCDTest {
 	// int s 만큼 공백을 채워주는 함수
 	public static String space(int s) {
 
-		String hLine = "";
+		String spaceLine = "";
 
 		for (int i = 0; i < s; i++) {
-			hLine += " ";
+			spaceLine += " ";
 		}
-		return hLine;
+		//
+		return spaceLine;
 	}
 
 }
