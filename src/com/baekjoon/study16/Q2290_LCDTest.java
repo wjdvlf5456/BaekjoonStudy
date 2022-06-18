@@ -1,8 +1,11 @@
 package com.baekjoon.study16;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.StringTokenizer;
 
 public class Q2290_LCDTest {
@@ -10,45 +13,31 @@ public class Q2290_LCDTest {
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Writer bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
 		int s = Integer.parseInt(st.nextToken());
 		String nStr = st.nextToken();
 
 		int n = nStr.length();
-		for (int i = 0; i < 5; i++) {
 
-			switch (i) {
-			case 0:
-				topWidth(nStr, s, n);
-				break;
-
-			case 1:
-				for (int j = 0; j < s; j++) {
-					System.out.println(topHeight(nStr, s, n));
-					
-				}
-				break;
-
-			case 2:
-				midWidth(nStr, s, n);
-				break;
-
-			case 3:
-				for (int j = 0; j < s; j++) {
-					System.out.println(undHeight(nStr, s, n));
-				}
-
-				break;
-
-			default:
-				botWidth(nStr, s, n);
-				break;
-			}
-			System.out.println("");
-
+		bw.write(topWidth(nStr, s, n));
+		((BufferedWriter) bw).newLine();
+		for (int i = 0; i < s; i++) {
+			bw.write(topHeight(nStr, s, n));
+			((BufferedWriter) bw).newLine();
 		}
+		bw.write(midWidth(nStr, s, n));
+		((BufferedWriter) bw).newLine();
 
+		for (int i = 0; i < s; i++) {
+			bw.write(undHeight(nStr, s, n));
+			((BufferedWriter) bw).newLine();
+		}
+		bw.write(botWidth(nStr, s, n));
+
+		bw.flush();
+		bw.close();
 		br.close();
 
 	}
@@ -61,7 +50,7 @@ public class Q2290_LCDTest {
 	}
 
 	// i==0, 맨 위의 줄 출력
-	public static void topWidth(String nStr, int s, int n) {
+	public static String topWidth(String nStr, int s, int n) {
 		String wLine = "";
 		for (int i = 0; i < n; i++) {
 			int nString = Integer.parseInt(subStr(nStr, i));
@@ -79,11 +68,11 @@ public class Q2290_LCDTest {
 			}
 			wLine += "  ";
 		}
-		System.out.print(wLine);
+		return wLine;
 	}
 
 	// i==0, 맨 위의 줄 출력
-	public static void midWidth(String nStr, int s, int n) {
+	public static String midWidth(String nStr, int s, int n) {
 		String wLine = "";
 		for (int i = 0; i < n; i++) {
 			int nString = Integer.parseInt(subStr(nStr, i));
@@ -102,11 +91,11 @@ public class Q2290_LCDTest {
 			}
 			wLine += "  ";
 		}
-		System.out.print(wLine);
+		return wLine;
 	}
 
 	// i==0, 맨 위의 줄 출력
-	public static void botWidth(String nStr, int s, int n) {
+	public static String botWidth(String nStr, int s, int n) {
 		String wLine = "";
 		for (int i = 0; i < n; i++) {
 			int nString = Integer.parseInt(subStr(nStr, i));
@@ -125,7 +114,7 @@ public class Q2290_LCDTest {
 			}
 			wLine += "  ";
 		}
-		System.out.print(wLine);
+		return wLine;
 	}
 
 	public static String width(int s) {	// s만큼 '-'를 출력하는 함수
@@ -141,7 +130,7 @@ public class Q2290_LCDTest {
 	public static String topHeight(String nStr, int s, int n) {	// 중간기준 위에 '|' 를 출력하는 함수
 
 		String hLine = "";
-		for (int i = 0; i <n; i++) {
+		for (int i = 0; i < n; i++) {
 			int nString = Integer.parseInt(subStr(nStr, i));
 
 			switch (nString) {
