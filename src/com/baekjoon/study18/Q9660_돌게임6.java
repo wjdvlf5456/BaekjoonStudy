@@ -1,39 +1,31 @@
 package com.baekjoon.study18;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Q9660_돌게임6 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
-		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		long n = sc.nextLong();
-
-		if (n < (long) 1000000000000l) {
-
-			int turn = 1;
-
-			while (n > 0) {
-				if (n >= 4) {
-					n -= 4;
-				} else if (n >= 3) {
-					n -= 3;
-				} else {
-					n -= 1;
-				}
-
-				turn *= -1;
-			}
-
-			if (turn == 1) {
-				System.out.println("CY");
-			} else {
-				System.out.println("SK");
-			}
+		long n = Long.parseLong(st.nextToken());
+		
+		if (n%7==0 || n%7==2) {
+			bw.write("CY");
+		} else {
+			bw.write("SK");
 		}
 
-		sc.close();
+		bw.flush();
+		bw.close();
+		br.close();
 
 	}
 
