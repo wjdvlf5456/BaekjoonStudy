@@ -32,12 +32,30 @@ public class Q20291_파일정리 {
 			} else {
 				fMap.put(ext, 1);
 			}
-		}
-		
-		for (String i : fMap.keySet()) {
-			System.out.println(i + " " + fMap.get(i));
 		};
-
+		String[] key = new String[fMap.size()];
+		int[] val = new int[fMap.size()];
+		
+		
+		int j = 0;
+		
+		for(String i: fMap.keySet()) {
+			key[j] = i;
+			j++;
+			
+		};
+		
+		j = 0;
+		for(int i: fMap.values()) {
+			val[j] = i;
+			j++;
+			
+		};
+		
+		for (int i = 0; i < val.length; i++) {
+			System.out.println(key[i] + " " + val[i]);
+		}		
+		
 
 		br.close();
 
