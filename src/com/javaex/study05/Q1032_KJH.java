@@ -16,6 +16,7 @@ public class Q1032_KJH {
         int fileNumber = Integer.parseInt(st.nextToken());
         String[] files = new String[fileNumber];
 
+        
         for (int i = 0; i < fileNumber; i++) {
             files[i] = br.readLine();
             System.out.println(files.length);
