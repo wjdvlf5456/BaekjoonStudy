@@ -38,25 +38,6 @@ public class Q1717_LJH {
 			String a = numb[1];
 			String b = numb[2];
 
-			switch (number.charAt(0)) {
-			case 0:
-				
-
-				break;
-			case 1:
-				if () {
-					System.out.println("YES");
-				} else {
-					System.out.println("NO");
-				}
-				
-
-				break;
-
-			default:
-				break;
-			}
-
 		}
 
 	}
